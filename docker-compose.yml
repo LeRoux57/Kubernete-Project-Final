@@ -1,0 +1,38 @@
+services:
+  django-atlantis-dark:
+    container_name: django-atlantis-dark
+    restart: always
+    build: './django-atlantis-dark'
+
+  django-modernize:
+    container_name : django-modernize
+    restart : always
+    build : './django-modernize'
+
+  django-pixel : 
+    container_name: django-pixel
+    restart: always
+    build: './django-pixel'
+  
+  django-soft-ui-dashboard:
+    container_name: django-soft-ui-dashboard
+    restart: always
+    build: './django-soft-ui-dashboard'
+
+  django-tabler:
+    container_name: django-tabler
+    restart: always
+    build : './django-tabler'
+
+  nginx:
+    container_name: nginxservproxy
+    image : nginx:alpine-slim
+    restart: always
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"       
+      - "5085:5085"
+      - "5005:5005"
+      - "8080:8080"
+      - "9090:9090"
